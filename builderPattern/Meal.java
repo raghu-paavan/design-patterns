@@ -1,4 +1,4 @@
-Java Code
+package builderPattern;
 
 public class Meal {
     private String burger;
@@ -19,7 +19,8 @@ public class Meal {
         private String drink;
         private String dessert;
 
-        public Builder() {}
+        public Builder() {
+        }
 
         public Builder withBurger(String burger) {
             this.burger = burger;
@@ -64,57 +65,13 @@ public class Meal {
 
     public static void main(String[] args) {
         Meal meal = new Meal.Builder()
-                        .withBurger("Cheeseburger")
-                        .withFries("Large fries")
-                        .withDrink("Coke")
-                        .build();
+                .withBurger("Cheeseburger")
+                .withFries("Large fries")
+                .withDrink("Coke")
+                .build();
 
         System.out.println("Burger: " + meal.getBurger());
         System.out.println("Fries: " + meal.getFries());
         System.out.println("Drink: " + meal.getDrink());
     }
 }
-
-Python Code 
-
-class Meal:
-    def __init__(self):
-        self.burger = None
-        self.fries = None
-        self.drink = None
-        self.dessert = None
-
-    def with_burger(self, burger):
-        self.burger = burger
-        return self
-
-    def with_fries(self, fries):
-        self.fries = fries
-        return self
-
-    def with_drink(self, drink):
-        self.drink = drink
-        return self
-
-    def with_dessert(self, dessert):
-        self.dessert = dessert
-        return self
-
-    def build(self):
-        return self
-
-
-# Usage
-meal = Meal() \
-    .with_burger("Cheeseburger") \
-    .with_fries("Large fries") \
-    .with_drink("Coke") \
-    .build()
-
-print("Burger:", meal.burger)
-print("Fries:", meal.fries)
-print("Drink:", meal.drink)
-
-
-
-
