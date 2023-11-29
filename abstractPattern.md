@@ -78,3 +78,61 @@ class OrcFactory implements FactionFactory {
 - **Complexity**: Introduces additional complexity by creating hierarchies of factories and products.
 
 Use the Abstract Factory pattern when you anticipate the need to create families of related or dependent objects, and you want to ensure that these families are compatible and interchangeable.
+
+
+One of the classic examples of the Strategy pattern in Java's core libraries is the `java.util.Comparator` interface. This interface defines a strategy for comparing objects.
+
+Here's how it works:
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("Alice", 25));
+        people.add(new Person("Bob", 30));
+        people.add(new Person("Charlie", 20));
+
+        // Using Comparator (Strategy pattern)
+        Comparator<Person> byName = Comparator.comparing(Person::getName);
+        Comparator<Person> byAge = Comparator.comparingInt(Person::getAge);
+
+        // Sorting using different strategies
+        Collections.sort(people, byName);
+        System.out.println("Sorted by name: " + people);
+
+        Collections.sort(people, byAge);
+        System.out.println("Sorted by age: " + people);
+    }
+}
+```
+
+In this example:
+
+- The `Comparator` interface represents the Strategy pattern. It defines a strategy for comparing objects.
+- `Comparator` allows different comparison strategies to be defined (e.g., by name, by age) through lambda expressions or method references.
+- `Collections.sort()` takes a list and a `Comparator` as arguments. It uses the provided `Comparator` strategy to sort the list accordingly.
+
+The `Comparator` interface in Java's Collections framework is a prime example of the Strategy pattern. It encapsulates various comparison strategies, allowing them to be applied to different collections for sorting purposes without modifying the core sorting algorithm itself.
