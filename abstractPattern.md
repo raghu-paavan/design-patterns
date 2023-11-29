@@ -7,7 +7,7 @@ The **Abstract Factory** is a creational design pattern that provides an interfa
 - **Concrete Product**: Implements the Abstract Product interfaces, defining the objects to be created by the corresponding Concrete Factory.
 
 ### Example in Java:
-Consider a game where you have different characters (Warriors, Mages) belonging to different factions (Human, Orc). Here's an abstract factory implementation:
+Consider a game where you have different characters (Warriors, Mages) belonging to different factions (Human, Orc). Here's an abstract factory implementation :
 
 ```java
 // Abstract Product: Character
